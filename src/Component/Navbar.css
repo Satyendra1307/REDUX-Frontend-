@@ -1,0 +1,33 @@
+.navbar {
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* Links section */
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: blue;
+}
+
+/* Cart section */
+.navbar-cart {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-cart i {
+  margin-right: 5px;
+}
+
+.navbar-cart span {
+  font-weight: bold;
+}
