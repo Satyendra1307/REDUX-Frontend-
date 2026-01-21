@@ -82,7 +82,7 @@ const AdminProductPanel = () => {
     <div className="container mt-5">
       <h2 className="text-center mb-4">🛍️ Admin Product Panel</h2>
 
-      {/* --- Form Section --- */}
+      
       <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm mb-5">
         <div className="row g-3">
           <div className="col-md-4">
