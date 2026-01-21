@@ -16,7 +16,7 @@ const AdminProductPanel = () => {
   });
   const [editId, setEditId] = useState(null);
 
-  // ✅ Fetch all products
+  
   const getProducts = async () => {
     try {
       const res = await axios.get("http://localhost:9000/getProducts");
@@ -30,21 +30,21 @@ const AdminProductPanel = () => {
     getProducts();
   }, []);
 
-  // ✅ Handle input change
+  
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // ✅ Add or Update Product
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editId) {
         await axios.put(`http://localhost:9000/updateProduct/${editId}`, form);
-        alert("✅ Product Updated");
+        alert(" Product Updated");
       } else {
         await axios.post("http://localhost:9000/addProduct", form);
-        alert("✅ Product Added");
+        alert(" Product Added");
       }
       setForm({
         name: "",
@@ -63,7 +63,7 @@ const AdminProductPanel = () => {
     }
   };
 
-  // ✅ Delete Product
+  
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       await axios.delete(`http://localhost:9000/deleteProduct/${id}`);
@@ -72,7 +72,7 @@ const AdminProductPanel = () => {
     }
   };
 
-  // ✅ Edit Product
+  
   const handleEdit = (product) => {
     setForm(product);
     setEditId(product._id);
@@ -173,8 +173,8 @@ const AdminProductPanel = () => {
         </div>
       </form>
 
-      {/* --- Product Table --- */}
-      <h4 className="mb-3">📦 Product List</h4>
+   
+      <h4 className="mb-3"> Product List</h4>
       <div className="table-responsive">
         <table className="table table-striped table-hover align-middle">
           <thead className="table-dark">

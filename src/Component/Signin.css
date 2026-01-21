@@ -1,0 +1,55 @@
+/* Wrapper (navbar ko effect nahi karega) */
+.login-wrapper {
+  min-height: calc(100vh - 70px); /* navbar height adjust */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form box */
+.login-form {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.login-form input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+/* Button */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #5a67d8;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 22px;
+  }
+}

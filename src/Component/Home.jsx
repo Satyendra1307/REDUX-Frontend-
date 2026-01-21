@@ -16,12 +16,12 @@ const Home = ({handleCart}) => {
       {products?.map((item, ind) => (
         <div className="productCart" key={ind}>
           <img src={item.img} alt="" />
-          <p>{item.name}</p>
-          <p>{item.category}</p>
-          <p>Rs.{item.price}</p>
-          <p>{item.rating}</p>
-          <p>{item.review}</p>
-          <p>{item.desc}</p>
+          <h2>{item.name}</h2>
+          <h3>{item.category}</h3>
+          <h4>Rs.{item.price}</h4>
+          <h5>{item.rating}</h5>
+          <h5>{item.review}</h5>
+          <p>{item.desc}</p> 
           <button className="btn btn-dark" onClick={()=>handleCart(item)}>Add to Cart</button>
         </div>
       ))}
