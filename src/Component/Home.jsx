@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import './Home.css'
 import Action from '../redux/Action'
 
-const Home = ({handleCart}) => {
-  const { products } = useSelector(state => state.item)
+const Home = ({ handleCart }) => {
+  const { products } = useSelector(state => state.Reducers)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -13,7 +13,9 @@ const Home = ({handleCart}) => {
 
   return (
     <div className="homeContainer">
-      {products?.map((item, ind) => (
+      {products.length === 0 && <h2>No products found</h2>}
+
+      {products.map((item, ind) => (
         <div className="productCart" key={ind}>
           <img src={item.img} alt="" />
           <h2>{item.name}</h2>
@@ -21,8 +23,13 @@ const Home = ({handleCart}) => {
           <h4>Rs.{item.price}</h4>
           <h5>{item.rating}</h5>
           <h5>{item.review}</h5>
-          <p>{item.desc}</p> 
-          <button className="btn btn-dark" onClick={()=>handleCart(item)}>Add to Cart</button>
+          <p>{item.desc}</p>
+          <button
+            className="btn btn-dark"
+            onClick={() => handleCart(item)}
+          >
+            Add to Cart
+          </button>
         </div>
       ))}
     </div>
