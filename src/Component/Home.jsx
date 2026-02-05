@@ -4,8 +4,12 @@ import './Home.css'
 import Action from '../redux/Action'
 
 const Home = ({ handleCart }) => {
-  const { products } = useSelector(state => state.Reducers)
   const dispatch = useDispatch()
+
+  // 🛡️ SAFE selector – default array
+  const products = useSelector(
+    (state) => state?.Reducers?.products || []
+  )
 
   useEffect(() => {
     dispatch(Action())
@@ -13,25 +17,32 @@ const Home = ({ handleCart }) => {
 
   return (
     <div className="homeContainer">
-      {products.length === 0 && <h2>No products found</h2>}
+      
+      {/* No products message */}
+      {products.length === 0 && (
+        <h2>No products found</h2>
+      )}
 
-      {products.map((item, ind) => (
-        <div className="productCart" key={ind}>
-          <img src={item.img} alt="" />
-          <h2>{item.name}</h2>
-          <h3>{item.category}</h3>
-          <h4>Rs.{item.price}</h4>
-          <h5>{item.rating}</h5>
-          <h5>{item.review}</h5>
-          <p>{item.desc}</p>
-          <button
-            className="btn btn-dark"
-            onClick={() => handleCart(item)}
-          >
-            Add to Cart
-          </button>
-        </div>
-      ))}
+      {/* Products list */}
+      {Array.isArray(products) &&
+        products.map((item, ind) => (
+          <div className="productCart" key={item._id || ind}>
+            <img src={item.img} alt={item.name} />
+            <h2>{item.name}</h2>
+            <h3>{item.category}</h3>
+            <h4>Rs.{item.price}</h4>
+            <h5>{item.rating}</h5>
+            <h5>{item.review}</h5>
+            <p>{item.desc}</p>
+
+            <button
+              className="btn btn-dark"
+              onClick={() => handleCart(item)}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
     </div>
   )
 }
