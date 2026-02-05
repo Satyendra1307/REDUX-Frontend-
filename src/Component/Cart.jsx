@@ -29,13 +29,13 @@ const change=((items,a)=>{
     }
   })
   const temp=cart
-  temp[ind].amount+=a
+  temp[ind].amount+=a   
   if(temp[ind].amount===0)
     temp[ind].amount=1
   setcart([...temp])
 })
 const token=(token)=>{
-console.log(token)
+console.log(token)  
 }
   return (
     <div>

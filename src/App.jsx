@@ -12,23 +12,21 @@ function App() {
 
 
   const handleCart = (item) =>{
-
+// console.log(item._id)
     let present = false
 
     cart.forEach(element=>{
 
-      if(element.id === item.id)
+      if(element._id == item._id)
 
         present = true
+      
 
     })
 
     if(present)
       return 
     setcart([...cart,{...item , amount:1}])
-
-    
-
 
   }
   return (
