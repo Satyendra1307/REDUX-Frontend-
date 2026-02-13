@@ -6,7 +6,7 @@ import Action from '../redux/Action'
 const Home = ({ handleCart }) => {
   const dispatch = useDispatch()
 
-  // 🛡️ SAFE selector – default array
+  
   const products = useSelector(
     (state) => state?.Reducers?.products || []
   )
